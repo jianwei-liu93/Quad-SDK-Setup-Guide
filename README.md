@@ -6,7 +6,7 @@
 mkdir -p catkin_ws/src
 cd ~/catkin_ws/src
 ```
-2. Get HSL solver for IPOPT from http://hsl.rl.ac.uk/ipopt and unzip (**This guide used Personal version release 2021.05.05, academic version needs to be tested**)
+2. Get HSL solver for IPOPT from http://hsl.rl.ac.uk/ipopt and unzip (**This guide used Personal version release 2021.05.05 included in this repo, the faster academic version needs to be tested**)
 3. Build HSL using the coin-or-tools (command below assumes that you unziped the HSL solver in the src folder): 
 ```bash
 git clone git@github.com:coin-or-tools/ThirdParty-HSL.git
@@ -27,3 +27,10 @@ sudo ./setup.sh
 cd ../..
 catkin build
 ```
+5. If you are getting the "cannot find ipopt" error, try building the library manually by:#
+```bash
+cd ~/catkin_ws/src/quad-sdk/external/ipopt/coinbrew/Ipopt/
+sudo ./configure
+sudo make install
+```
+then ```catkin build``` again
