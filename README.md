@@ -68,3 +68,18 @@ sudo ./configure
 sudo make install
 ```
 then ```catkin build``` again
+
+## Testing:
+Start gazebo world: 
+```bash
+roslaunch quad_utils quad_gazebo.launch robot_type:=a1 world:=gap_40cm
+```
+Stand the robot up:
+```bash
+rostopic pub /robot_1/control/mode std_msgs/UInt8 "data: 1"
+```
+Run the global planner:
+```bash
+roslaunch quad_utils quad_plan.launch reference:=gbpl logging:=true
+```
+
